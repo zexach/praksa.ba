@@ -1,7 +1,7 @@
 ﻿<?xml version = "1.0" encoding = "UTF-8" ?>
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:praksa.ba"
+             xmlns:views="clr-namespace:praksa.ba.Views"
              x:Class="praksa.ba.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -11,4 +11,16 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
+    <Application.MainPage>
+        <Shell>
+            <TabBar x:Name="PhoneTabs">
+                <Tab Title="Prijava" Icon="login.svg">
+                    <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" />
+                </Tab>
+                <Tab Title="Registracija" Icon="register.svg">
+                    <ShellContent ContentTemplate="{DataTemplate views:RegisterPage}" />
+                </Tab>
+            </TabBar>
+        </Shell>
+    </Application.MainPage>
 </Application>
