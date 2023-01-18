@@ -51,7 +51,7 @@
             </Frame>
             <Button
             Text="Prijavi se"
-            Clicked="displayLoginInfo"
+            Clicked="handleLogin"
             CornerRadius="40"
             BackgroundColor="#000000"
             WidthRequest="120"

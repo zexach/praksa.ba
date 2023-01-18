@@ -37,7 +37,7 @@
                 <Entry
                 Placeholder="Ime i prezime"
                 VerticalOptions="Center"
-                x:Name="fullName"/>
+                x:Name="fullNameInput"/>
             </Frame>
             <Frame
             HeightRequest="50"
@@ -48,7 +48,7 @@
                 <Entry
                 Placeholder="Email"
                 VerticalOptions="Center"
-                x:Name="email"/>
+                x:Name="emailInput"/>
             </Frame>
             <Frame
             HeightRequest="50"
@@ -59,7 +59,7 @@
                 <Entry
                 Placeholder="Password"
                 VerticalOptions="Center"
-                x:Name="password"/>
+                x:Name="passwordInput"/>
             </Frame>
             <Frame
             Padding="5,5,5,5"
@@ -72,17 +72,18 @@
                     Text="Ja sam:"
                     VerticalTextAlignment="Center"/>
                     <RadioButton
-                    x:Name="praktikant"
+                    x:Name="praktikantInput"
                     Content="Praktikant"            
                     FontSize="12"/>
                     <RadioButton
-                    x:Name="company"
+                    x:Name="companyInput"
                     Content="Poslodavac"            
                     FontSize="12"/>
                 </HorizontalStackLayout>
             </Frame>
             <Button
             Text="Registruj se"
+            Clicked="registerUser"
             CornerRadius="40"
             BackgroundColor="#000000"
             WidthRequest="120"
