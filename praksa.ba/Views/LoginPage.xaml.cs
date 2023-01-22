@@ -1,36 +1,54 @@
 namespace praksa.ba.Views;
-using System.Text.RegularExpressions;
+
+using praksa.ba.Models;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
+
+
 
 public partial class LoginPage : ContentPage
 {
 	public LoginPage()
 	{
 		InitializeComponent();
-
 	}
 
-	private void handleLogin(object o, EventArgs e)
+	private async void handleLogin(object o, EventArgs e)
 	{
-		string email = emailInput.Text;
+        HttpClient client = new HttpClient();
+
+        string email = emailInput.Text;
 		string password = passwordInput.Text;
-		if(email == null || password == null)
+
+		LoginRequest newLoginRequest = new LoginRequest()
+		{
+			username = email,
+			password = password
+		};
+
+        string loginInfoJsonString = JsonSerializer.Serialize(newLoginRequest);
+        StringContent content = new StringContent(loginInfoJsonString, Encoding.UTF8, "application/json");
+
+        if (email == null || password == null)
 		{
 			DisplayAlert("Greška", "Niste unijeli email ili lozinku!", "OK");
 		}
 		else
 		{
-            string pattern = @"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*" + "@" + @"((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$";
+            HttpResponseMessage response = await client.PostAsync("https://praksa.onrender.com/api/v1/users/login", content);
+			string responseString = await response.Content.ReadAsStringAsync();
 
-            if (Regex.IsMatch(email, pattern))
-            {
-				App.Current.MainPage = new NavigationPage(new UserPanel());
-            }
-            else
-            {
-				DisplayAlert("Greška", 
-					"Pogrešan unos emaila",
-				"OK");
+			string jsonResponse = "{" + "\"message\":\"Ne postoji korisnik sa tim podacima\"" + "}";
+
+            if (responseString.Equals(jsonResponse))
+			{
+                DisplayAlert("Login info", "Podaci za prijavu nisu ispravni", "OK");
+			}
+			else
+			{
+				App.Current.MainPage = new NavigationPage(new UserHomepage());
             }
         }
-	}
+    }
 }
