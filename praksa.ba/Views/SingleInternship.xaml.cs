@@ -10,4 +10,9 @@ public partial class SingleInternship : ContentPage
 		BindingContext = new DetailsViewModel();
         NavigationPage.SetHasNavigationBar(this, false);
     }
+
+    private async void backClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("..");
+    }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="praksa.ba.Views.Panel"
+             x:Class="praksa.ba.Views.CompanyPanel"
              xmlns:views="clr-namespace:praksa.ba.Views"
-             Title="Panel">
+             Title="CompanyPanel">
     <Shell.Resources>
         <ResourceDictionary>
             <Style TargetType="TabBar">
@@ -16,10 +16,10 @@
     <TabBar
         x:Name="tabbar">
         <Tab Title="Početna" Icon="home.svg">
-            <ShellContent ContentTemplate="{DataTemplate views:UserHomepage}" Route="UserHomepage"/>
+            <ShellContent ContentTemplate="{DataTemplate views:CompanyProfile}" Route="CompanyProfile"/>
         </Tab>
-        <Tab Title="Profil" Icon="profile.svg">
-            <ShellContent ContentTemplate="{DataTemplate views:UserProfile}" Route="UserProfile"/>
+        <Tab Title="Dodaj praksu" Icon="add.svg">
+            <ShellContent ContentTemplate="{DataTemplate views:AddInternshipPage}" Route="AddInternshipPage"/>
         </Tab>
     </TabBar>
 </Shell>

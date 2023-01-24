@@ -35,7 +35,7 @@
             Margin="0,20,0,20"
             >
                 <Entry
-                Placeholder="Ime i prezime"
+                Placeholder="Ime i prezime / naziv kompanije"
                 VerticalOptions="Center"
                 x:Name="fullNameInput"/>
             </Frame>

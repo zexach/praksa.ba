@@ -1,5 +1,6 @@
 namespace praksa.ba.Views;
 
+using Newtonsoft.Json;
 using praksa.ba.Models;
 using System.Net.Http;
 using System.Text;
@@ -14,7 +15,12 @@ public partial class LoginPage : ContentPage
 		InitializeComponent();
 	}
 
-	private async void handleLogin(object o, EventArgs e)
+    public static class SharedData
+    {
+        public static string jsonString { get; set; }
+    }
+
+    private async void handleLogin(object o, EventArgs e)
 	{
         HttpClient client = new HttpClient();
 
@@ -27,8 +33,9 @@ public partial class LoginPage : ContentPage
 			password = password
 		};
 
-        string loginInfoJsonString = JsonSerializer.Serialize(newLoginRequest);
+        string loginInfoJsonString = System.Text.Json.JsonSerializer.Serialize(newLoginRequest);
         StringContent content = new StringContent(loginInfoJsonString, Encoding.UTF8, "application/json");
+
 
         if (email == null || password == null)
 		{
@@ -47,7 +54,18 @@ public partial class LoginPage : ContentPage
 			}
 			else
 			{
-				App.Current.MainPage = new NavigationPage(new Panel());
+				User tempUser = new User();
+                tempUser = JsonConvert.DeserializeObject<User>(responseString);
+
+                SharedData.jsonString = responseString;
+				if(tempUser.typeOfUser == "POSLODAVAC")
+				{
+                    Application.Current.MainPage = new CompanyPanel();
+                }
+				else
+				{
+                    Application.Current.MainPage = new Panel();
+                }
             }
         }
     }

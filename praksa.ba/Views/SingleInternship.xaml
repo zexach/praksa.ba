@@ -12,17 +12,17 @@
             <HorizontalStackLayout
             HorizontalOptions="Start"
             VerticalOptions="Center">
-                <Image 
-                Source="splash.jpg"
-                WidthRequest="60"
-                HeightRequest="50"
-                VerticalOptions="Start"/>
+                <ImageButton
+                    HeightRequest="30"
+                    VerticalOptions="Center"
+                    Source="back.svg"
+                    Clicked="backClicked"/>
                 <Label
                 Text="praksa.ba"
                 FontAttributes="Bold"
                 FontSize="20"
                 Margin="0,20,0,20"
-                VerticalTextAlignment="End"/>
+                VerticalTextAlignment="Center"/>
             </HorizontalStackLayout>
             <Frame
             BackgroundColor="#fff"
@@ -76,6 +76,7 @@
                         <VerticalStackLayout>
                             <Label
                             TextColor="#949494"
+                            FontSize="13"
                             Text="Lokacija"/>
                             <Label
                             Text="{Binding Internship.location}"
@@ -84,6 +85,7 @@
                         <VerticalStackLayout>
                             <Label
                             TextColor="#949494"
+                            FontSize="13"
                             Text="Rok za prijavu"/>
                             <Label
                             Text="{Binding Internship.endDate}"
@@ -92,6 +94,7 @@
                         <VerticalStackLayout>
                             <Label
                             TextColor="#949494"
+                            FontSize="13"
                             Text="Trajanje prakse"/>
                             <Label
                             Text="{Binding Internship.duration}"

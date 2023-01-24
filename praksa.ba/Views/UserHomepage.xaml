@@ -130,10 +130,6 @@
                                                         Text="{Binding company}"
                                                         TextColor="Black"
                                                         FontSize="15"/>
-                                                        <Label
-                                                            x:Name="idText"
-                                                            Text="{Binding id}"
-                                                            VerticalTextAlignment="End"/>
                                                         </VerticalStackLayout>
                                                     </HorizontalStackLayout>
                                                     <HorizontalStackLayout

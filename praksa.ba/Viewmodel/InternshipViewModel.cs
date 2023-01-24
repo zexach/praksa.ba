@@ -26,11 +26,6 @@ namespace praksa.ba.Viewmodel
         [RelayCommand]
         private async void NavigateToProduct (Internship selectedInternship)
         {
-            /*var navigation = DependencyService.Get<INavigationService>();
-            navigation.NavigateTo(typeof(NewPage1), produc);
-            await Shell.Current.GoToAsync($"{nameof(NewPage1)}");*/
-
-            //Debug.Write(selectedInternship.id);
             await Shell.Current.GoToAsync($"{nameof(SingleInternship)}",
                 new Dictionary<string, object>
                 {
