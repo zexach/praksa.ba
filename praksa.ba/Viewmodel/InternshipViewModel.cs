@@ -1,19 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Newtonsoft.Json;
 using praksa.ba.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Net.Http;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Collections.Generic;
 
-using System.Threading.Tasks;
-using praksa.ba.Views;
 using CommunityToolkit.Mvvm.Input;
+using System.Diagnostics;
+using praksa.ba.Views;
 
 namespace praksa.ba.Viewmodel
 {
@@ -22,9 +14,28 @@ namespace praksa.ba.Viewmodel
         [ObservableProperty]
         ObservableCollection<Internship> internships = new ObservableCollection<Internship>();
 
+        public Command<string> goToProduct { get; set; }
+
+
+
         public InternshipViewModel()
         {
             getInternships();
+        }
+
+        [RelayCommand]
+        private async void NavigateToProduct (Internship selectedInternship)
+        {
+            /*var navigation = DependencyService.Get<INavigationService>();
+            navigation.NavigateTo(typeof(NewPage1), produc);
+            await Shell.Current.GoToAsync($"{nameof(NewPage1)}");*/
+
+            //Debug.Write(selectedInternship.id);
+            await Shell.Current.GoToAsync($"{nameof(SingleInternship)}",
+                new Dictionary<string, object>
+                {
+                    ["Internship"] = selectedInternship
+                });
         }
 
         public async void getInternships()
@@ -40,15 +51,6 @@ namespace praksa.ba.Viewmodel
             }
         }
 
-        [RelayCommand]
-        public async void loadSingleInternship(Internship internship)
-        {
-            await Shell.Current.GoToAsync($"{nameof(SingleInternship)}",
-                new Dictionary<string, object>
-                {
-                    ["Internship"] = internship
-                });
-        }
 
     }
 }

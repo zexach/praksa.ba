@@ -34,7 +34,7 @@
             Padding="10,5,5,5"
             Margin="20">
                 <Entry
-                Placeholder="Email"
+                Placeholder="Username"
                 VerticalOptions="Center"
                 x:Name="emailInput"/>
             </Frame>

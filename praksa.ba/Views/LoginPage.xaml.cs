@@ -47,7 +47,7 @@ public partial class LoginPage : ContentPage
 			}
 			else
 			{
-				App.Current.MainPage = new NavigationPage(new UserHomepage());
+				App.Current.MainPage = new NavigationPage(new Panel());
             }
         }
     }

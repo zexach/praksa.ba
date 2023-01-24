@@ -15,7 +15,7 @@
         <Shell>
             <TabBar x:Name="PhoneTabs">
                 <Tab Title="Prijava" Icon="login.svg">
-                    <ShellContent ContentTemplate="{DataTemplate views:UserHomepage}" />
+                    <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" />
                 </Tab>
                 <Tab Title="Registracija" Icon="register.svg">
                     <ShellContent ContentTemplate="{DataTemplate views:RegisterPage}" />

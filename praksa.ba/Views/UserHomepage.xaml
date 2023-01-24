@@ -86,7 +86,6 @@
                             </Frame>
                             <Button
                             Text="Pretraži"
-                            Clicked="handleSearch"
                             FontAttributes="Bold"
                             Margin="0,0,0,25"
                             Padding="20,15,20,15"
@@ -106,6 +105,7 @@
                                 HorizontalOptions="Center"
                                 BorderColor="Transparent">
                                 <CollectionView 
+                                    x:Name="listOfInternships"
                                     ItemsSource="{Binding Internships}">
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate x:DataType="models:Internship">
@@ -130,6 +130,10 @@
                                                         Text="{Binding company}"
                                                         TextColor="Black"
                                                         FontSize="15"/>
+                                                        <Label
+                                                            x:Name="idText"
+                                                            Text="{Binding id}"
+                                                            VerticalTextAlignment="End"/>
                                                         </VerticalStackLayout>
                                                     </HorizontalStackLayout>
                                                     <HorizontalStackLayout
@@ -165,7 +169,7 @@
                                                         </VerticalStackLayout>
                                                     </HorizontalStackLayout>
                                                     <Button
-                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:InternshipViewModel}}, Path=loadSingleInternship}"
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:InternshipViewModel}}, Path=NavigateToProductCommand}"
                                                     CommandParameter="{Binding .}"
                                                     Text="Pogledaj više"
                                                     FontAttributes="Bold"

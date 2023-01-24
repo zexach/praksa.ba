@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="praksa.ba.Views.Panel"
+             xmlns:views="clr-namespace:praksa.ba.Views"
+             Title="Panel">
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style TargetType="TabBar">
+                <Setter Property="Shell.TabBarBackgroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="#0973d6"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="Black"/>
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+    <TabBar
+        x:Name="tabbar">
+        <Tab Title="Home" Icon="login.svg">
+            <ShellContent ContentTemplate="{DataTemplate views:UserHomepage}" Route="UserHomepage"/>
+        </Tab>
+    </TabBar>
+</Shell>

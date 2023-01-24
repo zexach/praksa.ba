@@ -45,6 +45,18 @@ build_metadata.AdditionalFiles.ManifestResourceName = praksa.ba.Views.LoginPage.
 build_metadata.AdditionalFiles.TargetPath = Views\LoginPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\LoginPage.xaml
 
+[C:/Users/emirz/Desktop/praksa.ba/praksa.ba/Views/NewPage1.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = praksa.ba.Views.NewPage1.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\NewPage1.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\NewPage1.xaml
+
+[C:/Users/emirz/Desktop/praksa.ba/praksa.ba/Views/Panel.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = praksa.ba.Views.Panel.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Panel.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Panel.xaml
+
 [C:/Users/emirz/Desktop/praksa.ba/praksa.ba/Views/RegisterPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = praksa.ba.Views.RegisterPage.xaml

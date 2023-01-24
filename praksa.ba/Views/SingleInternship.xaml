@@ -25,14 +25,14 @@
                 VerticalTextAlignment="End"/>
             </HorizontalStackLayout>
             <Frame
-            BackgroundColor="#f0f5f5"
+            BackgroundColor="#fff"
             BorderColor="Transparent"
             Padding="0,30,0,0"
             VerticalOptions="StartAndExpand">
                 <VerticalStackLayout
-                    Spacing="20">
+                    Spacing="30">
                     <Image
-                    Source="atlant.png"
+                    Source="{Binding Internship.postImageUrl}"
                     HeightRequest="120"/>
                     <Label
                     Text="{Binding Internship.company}"
@@ -40,7 +40,7 @@
                     TextColor="Black"
                     HorizontalTextAlignment="Center"/>
                     <Label
-                        Text="Frontend developer"
+                        Text="{Binding Internship.position}"
                         FontSize="24"
                         FontAttributes="Bold"
                         HorizontalTextAlignment="Center"/>
@@ -51,35 +51,25 @@
                             Source="location.png"
                             HeightRequest="30"/>
                         <Label
-                            Text="Sarajevo"
+                            Text="{Binding Internship.location}"
                             FontSize="14"
                             FontAttributes="Bold"
                             VerticalTextAlignment="Center"/>
                     </HorizontalStackLayout>
-                    <HorizontalStackLayout
-                        Spacing="20"
-                        HorizontalOptions="Center">
-                        <Label
-                            Text="Git"
-                            FontSize="16"
-                            TextColor="#949494"/>
-                        <Label
-                            Text="Javascript"
-                            FontSize="16"
-                            TextColor="#949494"/>
-                        <Label
-                            Text="React"
-                            FontSize="16"
-                            TextColor="#949494"/>
-                        <Label
-                            Text="Agile"
-                            FontSize="16"
-                            TextColor="#949494"/>
-                        <Label
-                            Text="RESTful"
-                            FontSize="16"
-                            TextColor="#949494"/>
-                    </HorizontalStackLayout>
+                    <CollectionView
+                        HorizontalOptions="Center"
+                        ItemsSource="{Binding Internship.technologies}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" ItemSpacing="15" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Label
+                                    Text="{Binding}"
+                                    FontSize="14"/>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                     <HorizontalStackLayout
                         HorizontalOptions="Center"
                         Spacing="20">
@@ -88,26 +78,55 @@
                             TextColor="#949494"
                             Text="Lokacija"/>
                             <Label
-                            Text="Sarajevo"
-                            FontSize="18"/>
+                            Text="{Binding Internship.location}"
+                            FontSize="16"/>
                         </VerticalStackLayout>
                         <VerticalStackLayout>
                             <Label
                             TextColor="#949494"
                             Text="Rok za prijavu"/>
                             <Label
-                            Text="20 dana"
-                            FontSize="18"/>
+                            Text="{Binding Internship.endDate}"
+                            FontSize="16"/>
                         </VerticalStackLayout>
                         <VerticalStackLayout>
                             <Label
                             TextColor="#949494"
                             Text="Trajanje prakse"/>
                             <Label
-                            Text="2 mjeseca"
-                            FontSize="18"/>
+                            Text="{Binding Internship.duration}"
+                            FontSize="16"/>
                         </VerticalStackLayout>
                     </HorizontalStackLayout>
+                    <Frame
+                        BackgroundColor="#f0f5f5"
+                        BorderColor="Transparent">
+                        <VerticalStackLayout
+                            Spacing="30">
+                            <Label
+                                Text="O kompaniji"
+                                FontSize="25"
+                                FontAttributes="Bold"
+                                TextColor="Black"/>
+                            <Label
+                                Text="{Binding Internship.companyDescription}"
+                                LineHeight="1.5"/>
+                            <Label
+                                Text="Opis prakse"
+                                FontSize="25"
+                                FontAttributes="Bold"
+                                TextColor="Black"/>
+                            <Label
+                                Text="{Binding Internship.internshipDescription}"
+                                LineHeight="1.5"/>
+                            <Button
+                                Text="Prijavi se"
+                                FontAttributes="Bold"
+                                Padding="20,15,20,15"
+                                BackgroundColor="#0973d6"
+                                CornerRadius="50"/>
+                        </VerticalStackLayout>
+                    </Frame>
                 </VerticalStackLayout>
             </Frame>
         </VerticalStackLayout>

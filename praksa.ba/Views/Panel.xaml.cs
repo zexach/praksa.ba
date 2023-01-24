@@ -1,10 +1,8 @@
-﻿using praksa.ba.Views;
+namespace praksa.ba.Views;
 
-namespace praksa.ba;
-
-public partial class AppShell : Shell
+public partial class Panel : Shell
 {
-	public AppShell()
+	public Panel()
 	{
 		InitializeComponent();
         Routing.RegisterRoute(nameof(SingleInternship), typeof(SingleInternship));
