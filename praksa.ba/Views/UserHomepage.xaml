@@ -8,163 +8,173 @@
              Shell.NavBarIsVisible="False"
              Title="Userpanel">
     <ScrollView>
-        <VerticalStackLayout>
-            <HorizontalStackLayout
-            HorizontalOptions="Start"
-            VerticalOptions="Center">
-                <Image 
-                Source="splash.jpg"
-                WidthRequest="60"
-                HeightRequest="50"
-                VerticalOptions="Start"/>
-                <Label
+        <RefreshView
+            RefreshColor="#0973d6"
+            Command="{Binding GetInternshipsCommand}"
+            IsRefreshing="{Binding IsRefreshing}">
+            <ScrollView>
+                <VerticalStackLayout>
+                    <HorizontalStackLayout
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center">
+                        <Image 
+                    Source="splash.jpg"
+                    WidthRequest="60"
+                    HeightRequest="50"
+                    VerticalOptions="Start"/>
+                        <Label
                 Text="praksa.ba"
                 FontAttributes="Bold"
                 FontSize="20"
                 Margin="0,20,0,20"
                 VerticalTextAlignment="End"/>
-            </HorizontalStackLayout>
-            <Frame
+                    </HorizontalStackLayout>
+                    <Frame
             BackgroundColor="#f0f5f5"
             BorderColor="Transparent"
             Padding="0,30,0,0"
             VerticalOptions="StartAndExpand">
-                <VerticalStackLayout>
-                    <Label
+                        <VerticalStackLayout>
+                            <Label
                     Text="Pravo mjesto za pronalazak Vaše prve prakse u IT kompaniji"
                     FontAttributes="Bold"
                     FontSize="22"
                     Margin="20"
                     HorizontalTextAlignment="Center"
                     />
-                    <Label
+                            <Label
                     Text="praksa.ba je platforma na kojoj ćete pronaći bazu svih trenutno otvorenih praksi u Bosni i Hercegovini."
                     HorizontalTextAlignment="Center"/>
-                    <Frame
+                            <Frame
                     BackgroundColor="#ffffff"
                     BorderColor="Transparent"
                     CornerRadius="30"
                     HasShadow="True"
                     Margin="0,30,0,0"
                     VerticalOptions="StartAndExpand">
-                        <Frame.Shadow>
-                            <Shadow Brush="Black"
+                                <Frame.Shadow>
+                                    <Shadow Brush="Black"
                             Offset="1,1"
                             Radius="30"
                             Opacity="1" />
-                        </Frame.Shadow>
-                        <VerticalStackLayout>
-                            <Frame
+                                </Frame.Shadow>
+                                <VerticalStackLayout>
+                                    <Frame
                             VerticalOptions="Center"
                             CornerRadius="50"
                             BorderColor="#e6e6e6"
                             Padding="20,5,20,5"
                             Margin="0,0,0,15">
-                                <Picker
-                                x:Name="locationPicker"
-                                Title="Lokacija"/>
-                            </Frame>
-                            <Frame
+                                        <Entry
+                                    Text="{Binding location}"
+                                    x:Name="lokacijaFilter"
+                                    Placeholder="Lokacija"/>
+                                    </Frame>
+                                    <Frame
                             VerticalOptions="Center"
                             CornerRadius="50"
                             BorderColor="#e6e6e6"
                             Margin="0,0,0,15"
                             Padding="20,5,20,5">
-                                <Picker
-                                x:Name="positionPicker"
-                                Title="Pozicija"/>
-                            </Frame>
-                            <Frame
+                                        <Entry
+                                    Text="{Binding position}"
+                                    x:Name="pozicijaFilter"
+                                    Placeholder="Pozicija"/>
+                                    </Frame>
+                                    <Frame
                             VerticalOptions="Center"
                             CornerRadius="50"
                             BorderColor="#e6e6e6"
                             Margin="0,0,0,15"
                             Padding="20,5,20,5">
-                                <Picker
-                                x:Name="companyPicker"
-                                Title="Kompanija"/>
-                            </Frame>
-                            <Button
+                                        <Entry
+                                    Text="{Binding company}"
+                                    x:Name="kompanijaFilter"
+                                    Placeholder="Kompanija"/>
+                                    </Frame>
+                                    <Button
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type local:InternshipViewModel}}, Path=FilterCommand}"
                             Text="Pretraži"
                             FontAttributes="Bold"
                             Margin="0,0,0,25"
                             Padding="20,15,20,15"
                             BackgroundColor="#0973d6"
                             CornerRadius="50"/>
-                            <Label
+                                    <Label
                             Text="Prakse"
                             FontSize="25"
                             FontAttributes="Bold"/>
-                            <Label
+                                    <Label
                             Text="Sve pozicije"
                             FontSize="18"
                             />
-                            <Frame
+                                    <Frame
                                 Margin="0,20,0,0"
                                 Padding="0"
                                 HorizontalOptions="Center"
                                 BorderColor="Transparent">
-                                <CollectionView 
+                                        <CollectionView 
+                                    EmptyView="Nažalost, trenutno nijedna kompanija nema otvorenu praksu."
                                     x:Name="listOfInternships"
                                     ItemsSource="{Binding Internships}">
-                                    <CollectionView.ItemTemplate>
-                                        <DataTemplate x:DataType="models:Internship">
-                                            <Frame
+                                            <CollectionView.ItemTemplate>
+                                                <DataTemplate x:DataType="models:Internship">
+                                                    <Frame
                                                 Margin="0,0,0,25">
-                                                <VerticalStackLayout
+                                                        <VerticalStackLayout
                                                 Spacing="25">
-                                                    <HorizontalStackLayout
+                                                            <HorizontalStackLayout
                                                 Spacing="20">
-                                                        <Image
+                                                                <Image
                                                     Source="{Binding postImageUrl}"
                                                     HeightRequest="80"/>
-                                                        <VerticalStackLayout
+                                                                <VerticalStackLayout
                                                         VerticalOptions="Center">
-                                                            <Label
+                                                                    <Label
                                                         Text="{Binding position}"
                                                         FontSize="16"
                                                         FontAttributes="Bold"
                                                         TextColor="Black"
                                                         VerticalTextAlignment="Center"/>
-                                                            <Label
+                                                                    <Label
                                                         Text="{Binding company}"
                                                         TextColor="Black"
                                                         FontSize="15"/>
-                                                        </VerticalStackLayout>
-                                                    </HorizontalStackLayout>
-                                                    <HorizontalStackLayout
+                                                                </VerticalStackLayout>
+                                                            </HorizontalStackLayout>
+                                                            <HorizontalStackLayout
                                                     HorizontalOptions="Center"
                                                     Spacing="20">
-                                                        <VerticalStackLayout>
-                                                            <Label
+                                                                <VerticalStackLayout>
+                                                                    <Label
                                                         TextColor="#949494"
                                                         FontSize="12"
                                                         Text="Lokacija"/>
-                                                            <Label
+                                                                    <Label
                                                         Text="{Binding location}"
                                                         FontSize="14"/>
-                                                        </VerticalStackLayout>
-                                                        <VerticalStackLayout>
-                                                            <Label
+                                                                </VerticalStackLayout>
+                                                                <VerticalStackLayout>
+                                                                    <Label
                                                             TextColor="#949494"
                                                             FontSize="12"    
                                                             Text="Trajanje prakse"/>
-                                                            <Label
+                                                                    <Label
                                                             Text="{Binding duration}"
                                                             FontSize="14"/>
-                                                        </VerticalStackLayout>
-                                                        <VerticalStackLayout
+                                                                </VerticalStackLayout>
+                                                                <VerticalStackLayout
                                                         HorizontalOptions="Center">
-                                                            <Label
+                                                                    <Label
                                                             TextColor="#949494"
                                                             Text="Rok za prijavu"
                                                             FontSize="12"/>
-                                                            <Label
+                                                                    <Label
                                                             Text="{Binding endDate}"
                                                             FontSize="14"/>
-                                                        </VerticalStackLayout>
-                                                    </HorizontalStackLayout>
-                                                    <Button
+                                                                </VerticalStackLayout>
+                                                            </HorizontalStackLayout>
+                                                            <Button
                                                     Command="{Binding Source={RelativeSource AncestorType={x:Type local:InternshipViewModel}}, Path=NavigateToProductCommand}"
                                                     CommandParameter="{Binding .}"
                                                     Text="Pogledaj više"
@@ -172,17 +182,19 @@
                                                     Padding="20,15,20,15"
                                                     BackgroundColor="#0973d6"
                                                     CornerRadius="50"/>
-                                                </VerticalStackLayout>
-                                            </Frame>
-                                        </DataTemplate>
-                                    </CollectionView.ItemTemplate>
-                                </CollectionView>
+                                                        </VerticalStackLayout>
+                                                    </Frame>
+                                                </DataTemplate>
+                                            </CollectionView.ItemTemplate>
+                                        </CollectionView>
 
+                                    </Frame>
+                                </VerticalStackLayout>
                             </Frame>
                         </VerticalStackLayout>
                     </Frame>
                 </VerticalStackLayout>
-            </Frame>
-        </VerticalStackLayout>
+            </ScrollView>
+        </RefreshView>
     </ScrollView>
 </ContentPage>

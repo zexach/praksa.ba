@@ -77,15 +77,6 @@
                             <Label
                             TextColor="#949494"
                             FontSize="13"
-                            Text="Lokacija"/>
-                            <Label
-                            Text="{Binding Internship.location}"
-                            FontSize="16"/>
-                        </VerticalStackLayout>
-                        <VerticalStackLayout>
-                            <Label
-                            TextColor="#949494"
-                            FontSize="13"
                             Text="Rok za prijavu"/>
                             <Label
                             Text="{Binding Internship.endDate}"
@@ -123,7 +114,7 @@
                                 Text="{Binding Internship.internshipDescription}"
                                 LineHeight="1.5"/>
                             <Button
-                                Text="Prijavi se"
+                                Text="Otvori formu"
                                 FontAttributes="Bold"
                                 Padding="20,15,20,15"
                                 BackgroundColor="#0973d6"

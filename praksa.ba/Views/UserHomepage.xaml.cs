@@ -19,7 +19,7 @@ public partial class UserHomepage : ContentPage
 	{
         InitializeComponent();
         BindingContext = new InternshipViewModel();
-        Routing.RegisterRoute(nameof(SingleInternship), typeof(SingleInternship));
+        Routing.RegisterRoute(nameof(NewPage1), typeof(NewPage1));
         NavigationPage.SetHasNavigationBar(this, false);
     }
 	private void handleSearch(object o, EventArgs e)
@@ -27,8 +27,4 @@ public partial class UserHomepage : ContentPage
         DisplayAlert("Info", "Alo", "OK");
     }
 
-    /*private void handleInternshipLoad(object o, EventArgs e)
-    {
-        App.Current.MainPage = new NavigationPage(new SingleInternship());
-    }*/
 }

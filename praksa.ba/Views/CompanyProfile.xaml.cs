@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using praksa.ba.Models;
+using praksa.ba.Viewmodel;
 using System.Text;
 using System.Text.RegularExpressions;
 using static praksa.ba.Views.LoginPage;
@@ -23,6 +24,11 @@ public partial class CompanyProfile : ContentPage
         public string oldPassword { get; set; }
         public string newPassword { get; set; }
 
+    }
+
+    private void logOut(object o, EventArgs e)
+    {
+        Application.Current.MainPage = new AppShell();
     }
 
     private async void resetPassword(object o, EventArgs e)

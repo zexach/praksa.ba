@@ -106,6 +106,15 @@
                     Padding="20,15,20,15"
                     BackgroundColor="#0973d6"
                     CornerRadius="50"/>
+                <Button
+                    Text="Odjavi se"
+                    Margin="0,30,0,0"
+                    WidthRequest="130"
+                    Clicked="logOut"
+                    FontAttributes="Bold"
+                    Padding="20,15,20,15"
+                    BackgroundColor="#000"
+                    CornerRadius="50"/>
             </VerticalStackLayout>
         </Frame>
     </VerticalStackLayout>

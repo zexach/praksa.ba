@@ -16,10 +16,13 @@
     <TabBar
         x:Name="tabbar">
         <Tab Title="Početna" Icon="home.svg">
-            <ShellContent ContentTemplate="{DataTemplate views:CompanyProfile}" Route="CompanyProfile"/>
+            <ShellContent ContentTemplate="{DataTemplate views:CompanyHomepage}" Route="CompanyHomepage"/>
         </Tab>
         <Tab Title="Dodaj praksu" Icon="add.svg">
             <ShellContent ContentTemplate="{DataTemplate views:AddInternshipPage}" Route="AddInternshipPage"/>
+        </Tab>
+        <Tab Title="Profil" Icon="profile.svg">
+            <ShellContent ContentTemplate="{DataTemplate views:CompanyProfile}" Route="CompanyProfile"/>
         </Tab>
     </TabBar>
 </Shell>

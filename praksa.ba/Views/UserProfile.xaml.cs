@@ -31,6 +31,11 @@ public partial class UserProfile : ContentPage
 
     }
 
+    private void logOut(object o, EventArgs e)
+    {
+        Application.Current.MainPage = new AppShell();
+    }
+
     private async void resetPassword(object o, EventArgs e)
     {
         string oldPassword = oldPasswordInput.Text;
