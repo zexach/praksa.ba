@@ -18,7 +18,6 @@ public partial class AddInternshipPage : ContentPage
 	private async void addInternship(object o, EventArgs e)
 	{
 		string logo = logoInput.Text;
-		string company = nazivInput.Text;
 		string location = lokacijaInput.Text;
 		string position = pozicijaInput.Text;
 		string endDate = datumIstekaInput.Date.ToString();
@@ -28,7 +27,7 @@ public partial class AddInternshipPage : ContentPage
 		string internshipDescription = opisPrakseInput.Text;
 		string link = linkInput.Text;
 
-		if (logo == null || company == null || location == null || position == null || endDate == null || duration == null ||
+		if (logo == null || location == null || position == null || endDate == null || duration == null ||
 			technologiesString == null || companyDescription == null || internshipDescription == null || link == null)
 		{
 			DisplayAlert("Greška", "Sva polja moraju biti popunjena.", "OK");
@@ -43,7 +42,7 @@ public partial class AddInternshipPage : ContentPage
 			{
 				postImageUrl = logo,
 				position = position,
-				company = company,
+				company = currentUser.fullName,
 				location = location,
 				endDate = endDate.Substring(0, 10),
 				duration = duration,
@@ -63,7 +62,16 @@ public partial class AddInternshipPage : ContentPage
 			if (response.IsSuccessStatusCode)
 			{
 				DisplayAlert("Info", "Uspješno ste dodali novu praksu.", "OK");
-			}
+				logo = "";
+                position = "";
+                location = "";
+                endDate = "";
+                duration = "";
+                technologiesString = "";
+                companyDescription = "";
+                internshipDescription = "";
+				link = "";
+            }
 			else
 			{
 				DisplayAlert("Info", "Greška prilikom dodavanja nove prakse.", "OK");

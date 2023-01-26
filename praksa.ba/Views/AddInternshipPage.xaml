@@ -54,16 +54,6 @@
                 Padding="10,5,5,5"
                 Margin="20">
                 <Entry
-                    Placeholder="Naziv kompanije"
-                    VerticalOptions="Center"
-                    x:Name="nazivInput"/>
-            </Frame>
-            <Frame
-                HeightRequest="50"
-                WidthRequest="300"
-                Padding="10,5,5,5"
-                Margin="20">
-                <Entry
                     Placeholder="Lokacija"
                     VerticalOptions="Center"
                     x:Name="lokacijaInput"/>

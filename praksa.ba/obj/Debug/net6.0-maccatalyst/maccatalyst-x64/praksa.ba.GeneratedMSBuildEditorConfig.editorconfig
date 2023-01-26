@@ -45,6 +45,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = praksa.ba.Views.AddInterns
 build_metadata.AdditionalFiles.TargetPath = Views\AddInternshipPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\AddInternshipPage.xaml
 
+[C:/Users/emirz/Desktop/praksa.ba/praksa.ba/Views/CompanyHomepage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = praksa.ba.Views.CompanyHomepage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CompanyHomepage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CompanyHomepage.xaml
+
 [C:/Users/emirz/Desktop/praksa.ba/praksa.ba/Views/CompanyPanel.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = praksa.ba.Views.CompanyPanel.xaml
@@ -62,6 +68,12 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = praksa.ba.Views.LoginPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\LoginPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\LoginPage.xaml
+
+[C:/Users/emirz/Desktop/praksa.ba/praksa.ba/Views/NewPage1.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = praksa.ba.Views.NewPage1.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\NewPage1.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\NewPage1.xaml
 
 [C:/Users/emirz/Desktop/praksa.ba/praksa.ba/Views/Panel.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
